@@ -1,0 +1,12 @@
+body {
+  font-family: 'EB Garamond', serif;  
+}
+
+h1 {
+  background-color: #0157AE;
+}
+
+button {
+    background-color: #D42729;
+    border: 5px solid #D42729;
+}
