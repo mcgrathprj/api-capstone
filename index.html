@@ -7,19 +7,24 @@
     <link href="index.css" rel="stylesheet" type="text/css" />
     <link href="float-grid.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   </head>
   <body>
     <header role="banner">
       <h1>Learn About Your Local Elections</h1>
     </header>
-      <main role="main">
-        <form action="#" class="js-zipcode-lookup-form">
+    <main role="main">
+      <form action="#" class="js-search-form">
             <label for="text">Enter Your Address</label>
             <input type="text" id="text" class="js-query" placeholder="555 Main Street Springfield OH 55505">
             <button type="submit">Submit</button>
-        </form>
-        <div class=".js-search-results"></div>
-        <div class="js-official-page"></div>
+      </form>
+      <div class="js-search-results">
+        
+      </div>    
+      <div class="js-official-page">
+        
+      </div>  
   </main>
     <script src="index.js"></script>
   </body>
