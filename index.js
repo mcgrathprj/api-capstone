@@ -22,11 +22,11 @@ function listenForSearchTerms() {
 
 //When I click enter, I receive back the list. 
 function getDataFromCivicInfo(searchTerm, callback) {
-    const query = {
-      address: `${searchTerm}`,
-      key: "AIzaSyB7v_1_16Ghfi_9YeAL9JpV4FwYihrFyfY"
-    };
-    $.getJSON(CivicInfo_LookUp_URL, query, callback);
+  const query = {
+    address: `${searchTerm}`,
+    key: "AIzaSyB7v_1_16Ghfi_9YeAL9JpV4FwYihrFyfY"
+  };
+  $.getJSON(CivicInfo_LookUp_URL, query, callback);
 }
 
 //I retrieve headlines related to the elected official.
@@ -41,14 +41,20 @@ function getDataFromNewsAPI(official_name, callback) {
 
 function displayRepresentatives(data) {
   results = data; 
-  const html = data.officials.map((official, index) => renderResult(official));
+  const html = data.offices.map((office, index) => renderOffice(office));
   $(".js-search-results").html(html);
 }
 
-function renderResult(result) {
-  return `
-      <p class="js-official-list-item"><a href="#" onClick = "renderOfficialPage('${result.name}')">${result.name}</a></p>
-  `;
+function renderOffice(office) {
+  let html = "";
+  for (let i = 0; i < office.officialIndices.length; i++) {
+    html += `
+      <p class="js-official-list-item"><a href="#" 
+      onClick = "renderOfficialPage('${results.official[office.officialIndices[i]].name}')">${results.official[office.officialIndices[i]].name}</a></p>
+    `
+  }
+  return html;
+
 }
 
 function renderOfficialPage(person) {
