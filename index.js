@@ -4,8 +4,6 @@ const News_LookUp_URL = "https://newsapi.org/v2/everything";
 
 const Wikipedia_LookUp_URL = "https://en.wikipedia.org/w/api.php?action=query";
 
-const Twitter_LookUp_URL = "";
-
 let results; 
 
 //I enter an address in order to retrieve a list of elected officials.
@@ -56,21 +54,33 @@ function renderOfficialPage(office, index) {
     $(".js-official-page").html(`<img src="${results.officials[index].photoUrl}" class="js-headshot">
       <h2>${results.officials[index].name}: ${results.offices[office].name}</h2>
       <h3>Party: ${results.officials[index].party}</h3>
-      <h3>Website: <a href="${results.officials[index].urls[0]}">${results.officials[index].urls[0]}</a></h3>
-      `);
+      <h3>Website: <a href="${results.officials[index].urls[0]}">${results.officials[index].urls[0]}</a></h3>`
+    );
   }
   else {
    $(".js-official-page").html(`<img src="${results.officials[index].photoUrl}" class="js-headshot">
       <h2>${results.officials[index].name}: ${results.offices[office].name}</h2>
-      <h3>Party: ${results.officials[index].party}</h3>
-      `) 
+      <h3>Party: ${results.officials[index].party}</h3>`
+    ) 
   }
+
+  const brands = { 
+    Facebook: "fab fa-facebook-square", 
+    Twitter: "fab fa-twitter-square", 
+    GooglePlus: "fab fa-google-plus-square",
+    YouTube: "fab fa-youtube-square"
+  }; 
+
   for (let i = 0; i < results.officials[index].channels.length; i++){
+    let x = results.officials[index].channels[i].type; 
+    let icon = `<i class="${brands[x]} 2x"></i>`;
     $(".js-official-page").append(`
-      <h3>${results.officials[index].channels[i].type}: ${results.officials[index].channels[i].id}</h3> 
-      `)
+      <h3>${icon} ${results.officials[index].channels[i].type}: <a target="_blank" 
+        href="https://${results.officials[index].channels[i].type}.com/${results.officials[index].channels[i].id}">
+        ${results.officials[index].channels[i].id}</a></h3>` 
+    )
   }
-getDataFromNewsAPI(results.officials[index].name, renderHeadlines(results));
+  getDataFromNewsAPI(results.officials[index].name, renderHeadlines);
 }
 
 //I retrieve headlines related to the elected official.
@@ -85,8 +95,8 @@ function getDataFromNewsAPI(official_name, callback) {
 
 function renderHeadlines(data) {
     $(".js-news-results").html("<h3>Recent Headlines</h3>")
-    for (let i = 0; i < results.articles.length; i++) {
-      $(".js-news-results").append(`<p><a href="${results.articles[i].url}">${results.articles[i].title}</a></p>`)
+    for (let i = 0; i <data.articles.length; i++) {
+      $(".js-news-results").append(`<p><a href="${data.articles[i].url}">${data.articles[i].title}</a></p>`)
     }
 }
 listenForSearchTerms();
