@@ -1,6 +1,5 @@
-body,html {
+body {
   	font-family: 'EB Garamond', serif;  
-  	height: 100%;
 }
 
 h1 {  
@@ -13,6 +12,10 @@ h1 {
     position: relative;
     text-align: center;
     padding: 20px;
+}
+
+h3,p {
+	font-family: 'Lato', sans-serif;
 }
 
 button {
