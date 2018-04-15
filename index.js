@@ -4,6 +4,13 @@ const News_LookUp_URL = "https://newsapi.org/v2/everything";
 
 const Wikipedia_LookUp_URL = "https://en.wikipedia.org/w/api.php?action=query";
 
+const brands = { 
+  Facebook: "fab fa-facebook-f", 
+  Twitter: "fab fa-twitter", 
+  GooglePlus: "fab fa-google-plus-g",
+  YouTube: "fab fa-youtube"
+  }; 
+
 let results; 
 
 //I enter an address in order to retrieve a list of elected officials.
@@ -44,37 +51,30 @@ function renderOffice(office, officeIndex) {
   return html;
 
 }
-
+//when i click on the name of an official, i get back a page with more information about that official
 function renderOfficialPage(office, index) {
-    let has_urls = results.officials[index].hasOwnProperty("urls")
-    console.log(Object.keys(results.officials[index]))
     $(".js-search-results").css("display","none");
     $(".js-search-form").css("display","none");
-    if (has_urls == true) {
-    $(".js-official-page").html(`<img src="${results.officials[index].photoUrl}" class="js-headshot">
-      <h2>${results.officials[index].name}: ${results.offices[office].name}</h2>
+    if (results.officials[index].hasOwnProperty("urls") == true) {
+    $(".js-official-headings").html(`<img src="${results.officials[index].photoUrl}" class="js-headshot">
+      <h2>${results.officials[index].name}</h2>
+      <h3>${results.offices[office].name}</h3>
       <h3>Party: ${results.officials[index].party}</h3>
       <h3>Website: <a href="${results.officials[index].urls[0]}">${results.officials[index].urls[0]}</a></h3>`
     );
   }
   else {
-   $(".js-official-page").html(`<img src="${results.officials[index].photoUrl}" class="js-headshot">
-      <h2>${results.officials[index].name}: ${results.offices[office].name}</h2>
+   $(".js-official-headings").html(`<img src="${results.officials[index].photoUrl}" class="js-headshot">
+      <h2>${results.officials[index].name}<h2> 
+      <h3>${results.offices[office].name}</h3>
       <h3>Party: ${results.officials[index].party}</h3>`
     ) 
   }
 
-  const brands = { 
-    Facebook: "fab fa-facebook-f", 
-    Twitter: "fab fa-twitter", 
-    GooglePlus: "fab fa-google-plus-g",
-    YouTube: "fab fa-youtube"
-  }; 
-
   for (let i = 0; i < results.officials[index].channels.length; i++){
     let x = results.officials[index].channels[i].type; 
     let icon = `<i class="${brands[x]} 2x"></i>`;
-    $(".js-official-page").append(`
+    $(".js-official-channels").append(`
       <h3>${icon} ${results.officials[index].channels[i].type}: <a target="_blank" 
         href="https://${results.officials[index].channels[i].type}.com/${results.officials[index].channels[i].id}">
         ${results.officials[index].channels[i].id}</a></h3>` 
