@@ -65,10 +65,10 @@ function renderOfficialPage(office, index) {
   }
 
   const brands = { 
-    Facebook: "fab fa-facebook-square", 
-    Twitter: "fab fa-twitter-square", 
-    GooglePlus: "fab fa-google-plus-square",
-    YouTube: "fab fa-youtube-square"
+    Facebook: "fab fa-facebook-f", 
+    Twitter: "fab fa-twitter", 
+    GooglePlus: "fab fa-google-plus-g",
+    YouTube: "fab fa-youtube"
   }; 
 
   for (let i = 0; i < results.officials[index].channels.length; i++){
@@ -94,9 +94,11 @@ function getDataFromNewsAPI(official_name, callback) {
 
 
 function renderHeadlines(data) {
-    $(".js-news-results").html("<h3>Recent Headlines</h3>")
+    $(".js-news-results").html("<h2>Recent Headlines</h2>")
     for (let i = 0; i <data.articles.length; i++) {
-      $(".js-news-results").append(`<p><a href="${data.articles[i].url}">${data.articles[i].title}</a></p>`)
+      $(".js-news-results").append(`<h3><a href="${data.articles[i].url}">${data.articles[i].title}</a></h3>
+          <p>${data.articles[i].description}</p>`
+        )
     }
 }
 listenForSearchTerms();
