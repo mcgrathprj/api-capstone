@@ -1,65 +1,65 @@
 body {
-  	font-family: 'EB Garamond', serif;  
+    font-family: 'EB Garamond', serif;  
 }
 
 h1 {  
-  	color: white;
-	background-image: url("https://upload.wikimedia.org/wikipedia/commons/5/5a/American-flag-2a.jpg");
-	height: 50%;
-	background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-    text-align: center;
-    padding: 20px;
+  color: white;
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/5/5a/American-flag-2a.jpg");
+  height: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  text-align: center;
+  padding: 20px;
 }
 
 h2 {
-	font-size: 200%;
-	margin-left: 25px;
+  font-size: 200%;
+  margin-left: 25px;
 }
 
 h3,p {
-	font-family: 'Lato', sans-serif;
-	margin-left: 25px;
+  font-family: 'Lato', sans-serif;
+  margin-left: 25px;
 }
 
-.js-headshot	 {
-	display: block;
-	margin-left: 25px;
+.js-headshot   {
+  display: block;
+  margin-left: 25px;
 }
 
 .js-news-description {
-	margin-left: 30px;
+  margin-left: 30px;
 }
 
 button {
-    background-color: #D42729;
-    border: 5px solid #D42729;
+  background-color: #D42729;
+  border: 5px solid #D42729;
 }
 
 form {
-	display: block;
-	text-align: center;
-	width: 50%;
-	margin-left: auto;
-	margin-right: auto;
+  display: block;
+  text-align: center;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 input {
-	width: 50%;
+  width: 50%;
 }
 
 a:link {
-	color: #0157ae;
-	text-decoration: none;
+  color: #0157ae;
+  text-decoration: none;
 }
 
 a:hover {
-	text-decoration: underline;
+  text-decoration: underline;
 }
 
 .js-headshot {
-height: 275px;
-width: 220px;
+  height: 275px;
+  width: 220px;
 }
