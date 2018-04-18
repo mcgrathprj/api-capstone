@@ -14,8 +14,23 @@ h1 {
     padding: 20px;
 }
 
+h2 {
+	font-size: 200%;
+	margin-left: 25px;
+}
+
 h3,p {
 	font-family: 'Lato', sans-serif;
+	margin-left: 25px;
+}
+
+.js-headshot	 {
+	display: block;
+	margin-left: 25px;
+}
+
+.js-news-description {
+	margin-left: 30px;
 }
 
 button {

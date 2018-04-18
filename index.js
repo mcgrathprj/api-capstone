@@ -75,7 +75,7 @@ function renderOfficialPage(office, index) {
     let x = results.officials[index].channels[i].type; 
     let icon = `<i class="${brands[x]} 2x"></i>`;
     $(".js-official-channels").append(`
-      <h3>${icon} ${results.officials[index].channels[i].type}: <a target="_blank" 
+      <h3>${icon} <a target="_blank" 
         href="https://${results.officials[index].channels[i].type}.com/${results.officials[index].channels[i].id}">
         ${results.officials[index].channels[i].id}</a></h3>` 
     )
@@ -97,7 +97,7 @@ function renderHeadlines(data) {
     $(".js-news-results").html("<h2>Recent Headlines</h2>")
     for (let i = 0; i <data.articles.length; i++) {
       $(".js-news-results").append(`<h3><a href="${data.articles[i].url}">${data.articles[i].title}</a></h3>
-          <p>${data.articles[i].description}</p>`
+          <p class="js-news-description">${data.articles[i].description}</p>`
         )
     }
 }
