@@ -38,6 +38,7 @@ function displayRepresentatives(data) {
   results = data; 
   const html = data.offices.map((office, index) => renderOffice(office,index));
   $(".js-search-results").html(html);
+  $(".js-search-area").css("display","none")
 }
 
 function renderOffice(office, officeIndex) {
@@ -59,15 +60,15 @@ function renderOfficialPage(office, index) {
     $(".js-official-headings").html(`<img src="${results.officials[index].photoUrl}" class="js-headshot">
       <h2>${results.officials[index].name}</h2>
       <h3>${results.offices[office].name}</h3>
-      <h3>Party: ${results.officials[index].party}</h3>
-      <h3>Website: <a href="${results.officials[index].urls[0]}">${results.officials[index].urls[0]}</a></h3>`
+      <p>Party: ${results.officials[index].party}</p>
+      <p>Website: <a href="${results.officials[index].urls[0]}">${results.officials[index].urls[0]}</a></p>`
     );
   }
   else {
    $(".js-official-headings").html(`<img src="${results.officials[index].photoUrl}" class="js-headshot">
       <h2>${results.officials[index].name}<h2> 
       <h3>${results.offices[office].name}</h3>
-      <h3>Party: ${results.officials[index].party}</h3>`
+      <p>Party: ${results.officials[index].party}</p>`
     ) 
   }
 
@@ -75,9 +76,9 @@ function renderOfficialPage(office, index) {
     let x = results.officials[index].channels[i].type; 
     let icon = `<i class="${brands[x]} 2x"></i>`;
     $(".js-official-channels").append(`
-      <h3>${icon} <a target="_blank" 
+      <p>${icon} <a target="_blank" 
         href="https://${results.officials[index].channels[i].type}.com/${results.officials[index].channels[i].id}">
-        ${results.officials[index].channels[i].id}</a></h3>` 
+        ${results.officials[index].channels[i].id}</a></p>` 
     )
   }
   getDataFromNewsAPI(results.officials[index].name, renderHeadlines);
