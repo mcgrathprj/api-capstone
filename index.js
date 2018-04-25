@@ -46,7 +46,7 @@ function renderOffice(office, officeIndex) {
   for (let i = 0; i < office.officialIndices.length; i++) {
     html += `
       <p class="js-official-list-item"><a href="#" 
-      onClick = "renderOfficialPage(${officeIndex},${office.officialIndices[i]})">${results.officials[office.officialIndices[i]].name}</a></p>
+      onClick = "renderOfficialPage(${officeIndex},${office.officialIndices[i]})">${results.officials[office.officialIndices[i]].name}, ${results.officials[office.officialIndices[i]].party}</a></p>
     `
   }
   return html;
