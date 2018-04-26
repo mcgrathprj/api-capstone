@@ -20,7 +20,7 @@ function listenForSearchTerms() {
     const queryTarget = $(event.currentTarget).find(".js-query");
     const query = queryTarget.val();
     console.log("`listenForSearchTerms` ran; the address we are searching on is " + query);
-    queryTarget.val("");
+//    queryTarget.val("");
     getDataFromCivicInfo(query, displayRepresentatives);
   });
 }
@@ -38,7 +38,7 @@ function displayRepresentatives(data) {
   results = data; 
   const html = data.offices.map((office, index) => renderOffice(office,index));
   $(".js-search-results").html(html);
-  $(".js-search-area").css("display","none")
+//  $(".js-search-area").css("display","none")
 }
 
 function renderOffice(office, officeIndex) {
@@ -46,7 +46,8 @@ function renderOffice(office, officeIndex) {
   for (let i = 0; i < office.officialIndices.length; i++) {
     html += `
       <p class="js-official-list-item"><a href="#" 
-      onClick = "renderOfficialPage(${officeIndex},${office.officialIndices[i]})">${results.officials[office.officialIndices[i]].name}, ${results.officials[office.officialIndices[i]].party}</a></p>
+      onClick = "renderOfficialPage(${officeIndex},${office.officialIndices[i]})">${results.officials[office.officialIndices[i]].name}, 
+       ${results.officials[office.officialIndices[i]].party}: ${office.name}</a></p>
     `
   }
   return html;
@@ -76,7 +77,7 @@ function renderOfficialPage(office, index) {
     let x = results.officials[index].channels[i].type; 
     let icon = `<i class="${brands[x]} 2x"></i>`;
     $(".js-official-channels").append(`
-      <p>${icon} <a target="_blank" 
+      <p>${icon} ${results.officials[index].channels[i].type}: <a target="_blank" 
         href="https://${results.officials[index].channels[i].type}.com/${results.officials[index].channels[i].id}">
         ${results.officials[index].channels[i].id}</a></p>` 
     )
@@ -98,7 +99,7 @@ function renderHeadlines(data) {
     $(".js-news-results").html("<h2>Recent Headlines</h2>")
     for (let i = 0; i <data.articles.length; i++) {
       $(".js-news-results").append(`<h3><a href="${data.articles[i].url}">${data.articles[i].title}</a></h3>
-          <p class="js-news-description">${data.articles[i].description}</p>`
+          <p class="js-news-description">${data.articles[i].publishedAt}: ${data.articles[i].description}</p>`
         )
     }
 }

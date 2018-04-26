@@ -27,6 +27,10 @@ header {
   text-align: center
 }
 
+fieldset {
+  border: 1px solid white;
+}
+
 .js-headshot   {
   display: block;
   margin-left: 25px;
