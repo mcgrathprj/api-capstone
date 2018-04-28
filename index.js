@@ -2,8 +2,6 @@ const CivicInfo_LookUp_URL = "https://www.googleapis.com/civicinfo/v2/representa
 
 const News_LookUp_URL = "https://newsapi.org/v2/everything";
 
-const Wikipedia_LookUp_URL = "https://en.wikipedia.org/w/api.php?action=query";
-
 const brands = { 
   Facebook: "fab fa-facebook-f", 
   Twitter: "fab fa-twitter", 
@@ -20,7 +18,6 @@ function listenForSearchTerms() {
     const queryTarget = $(event.currentTarget).find(".js-query");
     const query = queryTarget.val();
     console.log("`listenForSearchTerms` ran; the address we are searching on is " + query);
-//    queryTarget.val("");
     getDataFromCivicInfo(query, displayRepresentatives);
   });
 }
@@ -38,7 +35,6 @@ function displayRepresentatives(data) {
   results = data; 
   const html = data.offices.map((office, index) => renderOffice(office,index));
   $(".js-search-results").html(html);
-//  $(".js-search-area").css("display","none")
 }
 
 function renderOffice(office, officeIndex) {
@@ -57,9 +53,11 @@ function renderOffice(office, officeIndex) {
 function renderOfficialPage(office, index) {
     $(".js-search-results").css("display","none");
     $(".js-search-form").css("display","none");
+    if (results.officials[index].hasOwnProperty("photoUrl") == true) {
+    $(".js-official-headshot").html(`<img src="${results.officials[index].photoUrl}" class="js-headshot">`)
+  };
     if (results.officials[index].hasOwnProperty("urls") == true) {
-    $(".js-official-headings").html(`<img src="${results.officials[index].photoUrl}" class="js-headshot">
-      <h2>${results.officials[index].name}</h2>
+    $(".js-official-headings").html(`<h2>${results.officials[index].name}</h2>
       <h3>${results.offices[office].name}</h3>
       <p>Party: ${results.officials[index].party}</p>
       <p>Website: <a href="${results.officials[index].urls[0]}">${results.officials[index].urls[0]}</a></p>`
@@ -76,12 +74,23 @@ function renderOfficialPage(office, index) {
   for (let i = 0; i < results.officials[index].channels.length; i++){
     let x = results.officials[index].channels[i].type; 
     let icon = `<i class="${brands[x]} 2x"></i>`;
+    if (x = "GooglePlus") {
+    $(".js-official-channels").append(`
+      <p>${icon} ${results.officials[index].channels[i].type}: <a target="_blank" 
+        href="https://plus.google.com/${results.officials[index].channels[i].id}">
+        ${results.officials[index].channels[i].id}</a></p>` 
+    )
+  } 
+    else { 
     $(".js-official-channels").append(`
       <p>${icon} ${results.officials[index].channels[i].type}: <a target="_blank" 
         href="https://${results.officials[index].channels[i].type}.com/${results.officials[index].channels[i].id}">
         ${results.officials[index].channels[i].id}</a></p>` 
-    )
+    )};
+
   }
+  $(".js-official-channels").append(`<button onclick="goBackToResults(query)" id="go_back">Return to List of Officials</button>`);
+
   getDataFromNewsAPI(results.officials[index].name, renderHeadlines);
 }
 
@@ -103,4 +112,10 @@ function renderHeadlines(data) {
         )
     }
 }
+
+function goBackToResults(query) {
+  console.log(query)
+}
+
+
 listenForSearchTerms();

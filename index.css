@@ -34,6 +34,12 @@ fieldset {
 .js-headshot   {
   display: block;
   margin-left: 25px;
+  margin-top: 25px;
+  height: 275px;
+  width: 220px;
+}
+
+.js-official-headshot {
   margin-top: 25px
 }
 
@@ -49,8 +55,6 @@ button {
 form {
  display: block;
  width: 50%;
-// margin-left: auto;
-// margin-right: auto;
  margin-bottom: 50px;
 }
 
@@ -65,9 +69,4 @@ a:link {
 
 a:hover {
   text-decoration: underline;
-}
-
-.js-headshot {
-  height: 275px;
-  width: 220px;
 }
