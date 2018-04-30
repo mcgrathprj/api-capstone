@@ -9,6 +9,8 @@ const brands = {
   YouTube: "fab fa-youtube"
   }; 
 
+let query;
+
 let results; 
 
 //I enter an address in order to retrieve a list of elected officials.
