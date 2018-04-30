@@ -35,6 +35,8 @@ function getDataFromCivicInfo(searchTerm, callback) {
 
 function displayRepresentatives(data) {
   results = data; 
+  const youraddress = data.normalizedInput;
+  $(".js-your-address").html(`${youraddress.line1} ${youraddress.city}, ${youraddress.state} ${youraddress.zip}`)
   const html = data.offices.map((office, index) => renderOffice(office,index));
   $(".js-search-results").html(html);
 }
