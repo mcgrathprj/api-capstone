@@ -35,13 +35,13 @@ function getDataFromCivicInfo(searchTerm, callback) {
 
 function displayRepresentatives(data) {
   results = data; 
-  const youraddress = data.normalizedInput;
-  $(".js-your-address").html(`${youraddress.line1} ${youraddress.city}, ${youraddress.state} ${youraddress.zip}`)
-  const html = data.offices.map((office, index) => renderOffice(office,index));
+  const youraddress = `${data.normalizedInput.line1} ${data.normalizedInput.city} ${data.normalizedInput.state} ${data.normalizedInput.zip}`;
+  $(".js-your-address").html(`Displaying elected officials for ${youraddress}`);
+  const html = data.offices.map((office, index) => renderOffice(office, index, youraddress));
   $(".js-search-results").html(html);
 }
 
-function renderOffice(office, officeIndex) {
+function renderOffice(office, officeIndex, address) {
   let html = "";
   for (let i = 0; i < office.officialIndices.length; i++) {
     html += `
@@ -55,12 +55,14 @@ function renderOffice(office, officeIndex) {
 }
 //when i click on the name of an official, i get back a page with more information about that official
 function renderOfficialPage(office, index) {
+    let youraddress = `${results.normalizedInput.line1} ${results.normalizedInput.city} ${results.normalizedInput.state} ${results.normalizedInput.zip}`
     $(".js-search-results").css("display","none");
     $(".js-search-form").css("display","none");
-    if (results.officials[index].hasOwnProperty("photoUrl") == true) {
+    $(".js-your-address").css("display","none");
+    if (results.officials[index].hasOwnProperty("photoUrl") === true) {
     $(".js-official-headshot").html(`<img src="${results.officials[index].photoUrl}" class="js-headshot">`)
   };
-    if (results.officials[index].hasOwnProperty("urls") == true) {
+    if (results.officials[index].hasOwnProperty("urls") === true) {
     $(".js-official-headings").html(`<h2>${results.officials[index].name}</h2>
       <h3>${results.offices[office].name}</h3>
       <p>Party: ${results.officials[index].party}</p>
@@ -93,7 +95,7 @@ function renderOfficialPage(office, index) {
     )};
 
   }
-  $(".js-official-channels").append(`<button onclick="goBackToResults(query)" id="go_back">Return to List of Officials</button>`);
+  $(".js-official-channels").append(`<button onclick="goBackToResults(${youraddress})" id="go_back">Return to List of Officials</button>`);
 
   getDataFromNewsAPI(results.officials[index].name, renderHeadlines);
 }
@@ -117,9 +119,8 @@ function renderHeadlines(data) {
     }
 }
 
-function goBackToResults(query) {
-  console.log(query)
+function goBackToResults(address) {
+  console.log(youraddress);
 }
-
 
 listenForSearchTerms();

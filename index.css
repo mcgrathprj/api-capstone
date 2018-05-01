@@ -39,6 +39,11 @@ fieldset {
   width: 220px;
 }
 
+.js-your-address, legend   {
+  margin-left: 25px;
+  margin-top: 25px;
+}
+
 .js-official-headshot {
   margin-top: 25px
 }
