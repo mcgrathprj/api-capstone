@@ -55,14 +55,21 @@ function renderOffice(office, officeIndex, address) {
 }
 //when i click on the name of an official, i get back a page with more information about that official
 function renderOfficialPage(office, index) {
-    let youraddress = `${results.normalizedInput.line1} ${results.normalizedInput.city} ${results.normalizedInput.state} ${results.normalizedInput.zip}`
-    $(".js-search-results").css("display","none");
-    $(".js-search-form").css("display","none");
-    $(".js-your-address").css("display","none");
-    if (results.officials[index].hasOwnProperty("photoUrl") === true) {
-    $(".js-official-headshot").html(`<img src="${results.officials[index].photoUrl}" class="js-headshot">`)
-  };
-    if (results.officials[index].hasOwnProperty("urls") === true) {
+  let youraddress = `${results.normalizedInput.line1} ${results.normalizedInput.city} ${results.normalizedInput.state} ${results.normalizedInput.zip}`
+  $(".js-search-results").css("display","none");
+  $(".js-search-form").css("display","none");
+  $(".js-your-address").css("display","none");
+  $(".js-official-headshot").css("display","block");
+  $(".js-official-headings").css("display","block");
+  $(".js-official-channels").css("display","block");
+  $(".js-news-results").css("display","block");    
+  if (results.officials[index].hasOwnProperty("photoUrl") === true) {
+    $(".js-official-headshot").html(`<img src="${results.officials[index].photoUrl}" class="js-headshot">`);
+  }
+  else {
+    $(".js-official-headshot").empty();
+  }
+  if (results.officials[index].hasOwnProperty("urls") === true) {
     $(".js-official-headings").html(`<h2>${results.officials[index].name}</h2>
       <h3>${results.offices[office].name}</h3>
       <p>Party: ${results.officials[index].party}</p>
@@ -76,26 +83,27 @@ function renderOfficialPage(office, index) {
       <p>Party: ${results.officials[index].party}</p>`
     ) 
   }
-
+  $(".js-official-channels").empty();
   for (let i = 0; i < results.officials[index].channels.length; i++){
     let x = results.officials[index].channels[i].type; 
     let icon = `<i class="${brands[x]} 2x"></i>`;
     if (x = "GooglePlus") {
-    $(".js-official-channels").append(`
-      <p>${icon} ${results.officials[index].channels[i].type}: <a target="_blank" 
-        href="https://plus.google.com/${results.officials[index].channels[i].id}">
-        ${results.officials[index].channels[i].id}</a></p>` 
-    )
-  } 
+      $(".js-official-channels").append(`
+        <p>${icon} ${results.officials[index].channels[i].type}: <a target="_blank" 
+          href="https://plus.google.com/${results.officials[index].channels[i].id}">
+          ${results.officials[index].channels[i].id}</a></p>` 
+     )
+    } 
     else { 
-    $(".js-official-channels").append(`
-      <p>${icon} ${results.officials[index].channels[i].type}: <a target="_blank" 
-        href="https://${results.officials[index].channels[i].type}.com/${results.officials[index].channels[i].id}">
-        ${results.officials[index].channels[i].id}</a></p>` 
-    )};
+      $(".js-official-channels").html(`
+        <p>${icon} ${results.officials[index].channels[i].type}: <a target="_blank" 
+          href="https://${results.officials[index].channels[i].type}.com/${results.officials[index].channels[i].id}">
+          ${results.officials[index].channels[i].id}</a></p>` 
+      )
+    };
 
   }
-  $(".js-official-channels").append(`<button onclick="goBackToResults(${youraddress})" id="go_back">Return to List of Officials</button>`);
+  $(".js-official-channels").html(`<button onclick="goBackToResults()" id="go_back">Return to List of Officials</button>`);
 
   getDataFromNewsAPI(results.officials[index].name, renderHeadlines);
 }
@@ -119,8 +127,15 @@ function renderHeadlines(data) {
     }
 }
 
-function goBackToResults(address) {
-  console.log(youraddress);
+function goBackToResults() {
+    $(".js-search-results").css("display","block");
+    $(".js-search-form").css("display","block");
+    $(".js-your-address").css("display","block");
+    $(".js-official-headshot").css("display","none");
+    $(".js-official-headings").css("display","none");
+    $(".js-official-channels").css("display","none");
+    $(".js-news-results").css("display","none");
+
 }
 
 listenForSearchTerms();
