@@ -12,6 +12,6 @@ Built In: JavaScript, jQuery, CSS, HTML
 Sources: Google's Civic Information API (https://developers.google.com/civic-information/), News API (https://newsapi.org/). 
 
 Screens: 
-![opening screen](/screenshots/offiecial-finder-screen1.png)
+![opening screen](/screenshots/official-finder-screen1.png)
 ![list of representatives](/screenshots/official-finder-list-of-representatives.png)
 ![page for an individual lawmaker (Gavin Newsom)](/screenshots/official-finder-newsom.png)
