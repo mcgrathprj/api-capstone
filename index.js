@@ -84,6 +84,7 @@ function renderOfficialPage(office, index) {
     ) 
   }
   $(".js-official-channels").empty();
+  if (results.officials[index].hasOwnProperty("channels") === true) {
   for (let i = 0; i < results.officials[index].channels.length; i++){
     let x = results.officials[index].channels[i].type; 
     let icon = `<i class="${brands[x]} 2x"></i>`;
@@ -99,11 +100,11 @@ function renderOfficialPage(office, index) {
         <p>${icon} ${results.officials[index].channels[i].type}: <a target="_blank" 
           href="https://${results.officials[index].channels[i].type}.com/${results.officials[index].channels[i].id}">
           ${results.officials[index].channels[i].id}</a></p>` 
-      )
-    };
-
+        )
+      };
+    }
   }
-  $(".js-official-channels").html(`<button onclick="goBackToResults()" id="go_back">Return to List of Officials</button>`);
+  $(".js-back-button").html(`<button onclick="goBackToResults()" id="go_back">Return to List of Officials</button>`);
 
   getDataFromNewsAPI(results.officials[index].name, renderHeadlines);
 }
