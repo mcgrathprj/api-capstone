@@ -1,10 +1,14 @@
-body {
+body, html {
   font-family: 'EB Garamond', serif;  
+  height: 100%;
+  margin:0;
 }
 
 h1 {  
   text-align: center;
-  padding: 20px;
+  font-size: 400%;
+  margin-top: 0px;
+  padding: 0px
 }
 
 h2 {
@@ -24,11 +28,15 @@ header {
   background-repeat: no-repeat;
   background-size: cover;
   color: white;
-  text-align: center
+  text-align: center;
+  position: relative
 }
 
 fieldset {
-  border: 1px solid white;
+  border: none;
+  display: block;
+  margin-left: auto;
+  margin-right: auto
 }
 
 .js-headshot   {
@@ -53,14 +61,16 @@ fieldset {
 }
 
 button {
- background-color: #D42729;
- border: 5px solid #D42729;
+ background-color: #0052A5;
+ border: 5px solid #0052A5;
 }
 
 form {
  display: block;
  width: 50%;
  margin-bottom: 50px;
+ margin-left: auto;
+ margin-right: auto;
 }
 
 input {

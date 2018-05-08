@@ -35,10 +35,15 @@ function getDataFromCivicInfo(searchTerm, callback) {
 
 function displayRepresentatives(data) {
   results = data; 
-  const youraddress = `${data.normalizedInput.line1} ${data.normalizedInput.city} ${data.normalizedInput.state} ${data.normalizedInput.zip}`;
-  $(".js-your-address").html(`Displaying elected officials for ${youraddress}`);
-  const html = data.offices.map((office, index) => renderOffice(office, index, youraddress));
-  $(".js-search-results").html(html);
+  if (data.hasOwnProperty("error") === true) {
+    $(".main").append(`Please enter a valid address`)
+  } 
+  else {
+    const youraddress = `${data.normalizedInput.line1} ${data.normalizedInput.city} ${data.normalizedInput.state} ${data.normalizedInput.zip}`;
+    $(".js-your-address").html(`Displaying elected officials for ${youraddress}`);
+    const html = data.offices.map((office, index) => renderOffice(office, index, youraddress));
+    $(".js-search-results").html(html);
+  }
 }
 
 function renderOffice(office, officeIndex, address) {
