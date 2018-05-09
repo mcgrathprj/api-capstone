@@ -30,21 +30,37 @@ function getDataFromCivicInfo(searchTerm, callback) {
     address: `${searchTerm}`,
     key: "AIzaSyB7v_1_16Ghfi_9YeAL9JpV4FwYihrFyfY"
   };
-  $.getJSON(CivicInfo_LookUp_URL, query, callback);
+  $.getJSON(CivicInfo_LookUp_URL, query)
+  .done(function(data) {
+    displayRepresentatives(data)
+  })
+  .fail(function( jqxhr, textStatus, error ) {
+    var err = textStatus + ", " + error;
+    displayError( "Request Failed: " + err );
+  });
+};
+
+function displayError(message) {
+ $(".error-message").html(`<h2>${message}</h2>`)
 }
+
+// // $.getJSON( "test.js", { name: "John", time: "2pm" } )
+//   // .done(function( json ) {
+//     // console.log( "JSON Data: " + json.users[ 3 ].name );
+//   })
+//   .fail(function( jqxhr, textStatus, error ) {
+//     var err = textStatus + ", " + error;
+//     console.log( "Request Failed: " + err );
+// });
+
 
 function displayRepresentatives(data) {
   results = data; 
-  if (data.hasOwnProperty("error") === true) {
-    $(".main").append(`Please enter a valid address`)
-  } 
-  else {
     const youraddress = `${data.normalizedInput.line1} ${data.normalizedInput.city} ${data.normalizedInput.state} ${data.normalizedInput.zip}`;
     $(".js-your-address").html(`Displaying elected officials for ${youraddress}`);
     const html = data.offices.map((office, index) => renderOffice(office, index, youraddress));
     $(".js-search-results").html(html);
   }
-}
 
 function renderOffice(office, officeIndex, address) {
   let html = "";
