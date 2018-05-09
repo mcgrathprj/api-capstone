@@ -16,6 +16,12 @@ h2 {
   margin-left: 25px;
 }
 
+legend {
+  font-size: 200%;
+  margin-bottom: 25px;
+}
+
+
 h3,p, label, #go_back {
   font-family: 'Lato', sans-serif;
   margin-left: 25px;

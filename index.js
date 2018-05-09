@@ -36,7 +36,7 @@ function getDataFromCivicInfo(searchTerm, callback) {
   })
   .fail(function( jqxhr, textStatus, error ) {
     var err = textStatus + ", " + error;
-    displayError( "Request Failed: " + err );
+    displayError( "Request Failed; Please Try A Valid Address");
   });
 };
 
@@ -56,8 +56,12 @@ function displayError(message) {
 
 function displayRepresentatives(data) {
   results = data; 
+  $(".error-message").css("display", "none");
+  $(".js-search-area").css("display", "none");
+  $("header").css("height", "25%");
+
     const youraddress = `${data.normalizedInput.line1} ${data.normalizedInput.city} ${data.normalizedInput.state} ${data.normalizedInput.zip}`;
-    $(".js-your-address").html(`Displaying elected officials for ${youraddress}`);
+    $(".js-your-address").html(`<h2>Displaying elected officials for ${youraddress}</h2>`);
     const html = data.offices.map((office, index) => renderOffice(office, index, youraddress));
     $(".js-search-results").html(html);
   }
