@@ -87,7 +87,8 @@ function renderOfficialPage(office, index) {
   $(".js-official-headshot").css("display","block");
   $(".js-official-headings").css("display","block");
   $(".js-official-channels").css("display","block");
-  $(".js-news-results").css("display","block");    
+  $(".js-news-results").css("display","block");
+  $(".js-back-button").css("display","block");    
   if (results.officials[index].hasOwnProperty("photoUrl") === true) {
     $(".js-official-headshot").html(`<img src="${results.officials[index].photoUrl}" class="js-headshot">`);
   }
@@ -161,6 +162,7 @@ function goBackToResults() {
     $(".js-official-headings").css("display","none");
     $(".js-official-channels").css("display","none");
     $(".js-news-results").css("display","none");
+    $(".js-back-button").css("display","none")
 
 }
 
