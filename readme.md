@@ -1,6 +1,6 @@
 Official Finder: A Place to Learn about Your Elected Officials
 
-Motivation
+Motivation:
 I wanted an easier way of finding out about who my representatives are in national, state and local government, and wanted one place to see what the news around them is. 
 
 URL: https://mcgrathprj.github.io/official-finder/
