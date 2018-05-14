@@ -67,8 +67,9 @@ fieldset {
 }
 
 button {
- background-color: #0052A5;
- border: 5px solid #0052A5;
+ background-color: #000080;
+ border: 5px solid #000080;
+ color: white;
 }
 
 form {
