@@ -44,21 +44,11 @@ function displayError(message) {
  $(".error-message").html(`<h2>${message}</h2>`)
 }
 
-// // $.getJSON( "test.js", { name: "John", time: "2pm" } )
-//   // .done(function( json ) {
-//     // console.log( "JSON Data: " + json.users[ 3 ].name );
-//   })
-//   .fail(function( jqxhr, textStatus, error ) {
-//     var err = textStatus + ", " + error;
-//     console.log( "Request Failed: " + err );
-// });
-
-
 function displayRepresentatives(data) {
   results = data; 
   $(".error-message").css("display", "none");
   $(".js-search-area").css("display", "none");
-  $("header").css("height", "25%");
+  $("header").css("height", "10%");
 
     const youraddress = `${data.normalizedInput.line1} ${data.normalizedInput.city} ${data.normalizedInput.state} ${data.normalizedInput.zip}`;
     $(".js-your-address").html(`<h2>Displaying elected officials for ${youraddress}</h2>`);
@@ -90,7 +80,7 @@ function renderOfficialPage(office, index) {
   $(".js-news-results").css("display","block");
   $(".js-back-button").css("display","block");    
   if (results.officials[index].hasOwnProperty("photoUrl") === true) {
-    $(".js-official-headshot").html(`<img src="${results.officials[index].photoUrl}" class="js-headshot">`);
+    $(".js-official-headshot").html(`<img src="${results.officials[index].photoUrl}" class="js-headshot" alt="headshot for ${results.officials[index].name}"/>`);
   }
   else {
     $(".js-official-headshot").empty();
