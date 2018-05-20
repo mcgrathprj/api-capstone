@@ -29,7 +29,7 @@ h3,p, label, #go_back {
 
 header {
   background-image: url("https://upload.wikimedia.org/wikipedia/commons/5/5a/American-flag-2a.jpg");
-  height: 100%;
+  height: 75%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -60,6 +60,11 @@ fieldset {
 
 .js-official-headshot {
   margin-top: 25px
+}
+
+.js-error-message {
+  margin-top: 25px;
+  position: relative;
 }
 
 .js-news-description {

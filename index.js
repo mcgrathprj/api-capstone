@@ -36,7 +36,7 @@ function getDataFromCivicInfo(searchTerm, callback) {
   })
   .fail(function( jqxhr, textStatus, error ) {
     var err = textStatus + ", " + error;
-    displayError( "Request Failed; Please Try A Valid Address");
+    displayError( "Please Check the Address You Entered and Try Again");
   });
 };
 
