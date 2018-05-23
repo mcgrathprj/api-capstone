@@ -5,6 +5,7 @@ body, html {
 }
 
 h1 {  
+  background: linear-gradient(to right, #4481eb 0%, #04befe 100%);
   text-align: center;
   font-size: 400%;
   margin-top: 0px;
@@ -32,14 +33,6 @@ label {
   margin-left: 25px;
 }
   
-
-header {
-/*  background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%); */
-  background: linear-gradient(to right, #4481eb 0%, #04befe 100%);
-  text-align: center;
-  position: relative
-}
-
 fieldset {
   border: none;
   display: block;
