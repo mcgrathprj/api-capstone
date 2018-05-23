@@ -1,5 +1,5 @@
 body, html {
-  font-family: 'EB Garamond', serif;  
+  font-family: 'Roboto', sans-serif;
   height: 100%;
   margin:0;
 }
@@ -19,6 +19,7 @@ h2 {
 legend {
   font-size: 200%;
   margin-bottom: 25px;
+  margin-top: 25px;
 }
 
 
@@ -27,14 +28,10 @@ h3,p, label, #go_back {
   margin-left: 25px;
 }
 
+
 header {
-  background-image: url("https://upload.wikimedia.org/wikipedia/commons/5/5a/American-flag-2a.jpg");
-  height: 75%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  color: white;
-  background-color: navy;
+/*  color: white;*/
+  background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
   text-align: center;
   position: relative
 }
@@ -73,13 +70,14 @@ fieldset {
 }
 
 button {
- background-color: #000080;
- border: 5px solid #000080;
- color: white;
+background-color: #2575fc;
+border: 5px solid #2575fc;
+color: white;
 }
 
 form {
- display: block;
+/* display: block;*/
+text-align: center;
  width: 50%;
  margin-bottom: 50px;
  margin-left: auto;
