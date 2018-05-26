@@ -48,7 +48,7 @@ fieldset {
   width: 220px;
 }
 
-.js-your-address, legend   {
+.js-your-address, legend, .js-search-results, .js-new-search  {
   margin-left: 25px;
   margin-top: 25px;
 }
@@ -67,9 +67,8 @@ fieldset {
 }
 
 button {
-  background-color: #4481eb;
-  border: 5px solid #4481eb;
-  color: white;
+  background-color: #04befe;
+  border: 5px solid #04befe;
 }
 
 form {
@@ -80,7 +79,10 @@ form {
 }
 
 input {
-  width: 50%;
+  width: 33%;
+  height: 15px;
+  padding: 5px;
+  margin-top: 5px;
 }
 
 a:link {

@@ -2,9 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Official Finder</title>
     <link href="index.css" rel="stylesheet" type="text/css" />
+    <link href="float-grid.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -15,14 +16,14 @@
       </header>
     <main role="main">
       <div class="js-search-area">  
-        <form action="#" class="js-search-form">
-          <fieldset>
-            <legend>Who Are Your Elected Officials?</legend>
-            <label for="text">Enter Your Address to Get Started</label><br>
-            <input type="text" id="text" class="js-query" placeholder="Enter a U.S. Address">
-            <button type="submit">Submit</button>
-          </fieldset>
-        </form>
+          <form action="#" class="js-search-form">
+            <fieldset>
+              <legend>Who Are Your Elected Officials?</legend>
+              <label for="text">Enter Your Address to Get Started</label><br>
+              <input type="text" id="text" class="js-query" placeholder="Enter a U.S. Address">
+              <button type="submit">Submit</button>
+            </fieldset>
+          </form>
       </div>
       <div class="error-message">
       </div>
@@ -30,15 +31,27 @@
       </div>
       <div class="js-search-results" aria-live="polite">
       </div>
-      <div class="js-official-headshot" aria-live="assertive">
-      </div>    
-      <div class="js-official-headings" aria-live="assertive">
-      </div>
-      <div class="js-official-channels" aria-live="assertive">
-      </div>
-      <div class="js-back-button" aria-live="assertive">
-      </div>
-      <div class="js-news-results" aria-live="assertive">
+      <div class="row">
+        <div class="col-4">
+          <div class="js-official-headshot" aria-live="assertive">
+          </div>
+        </div>      
+        <div class="col-4">
+          <div class="js-official-headings" aria-live="assertive">
+          </div>
+        </div>  
+        <div class="col-4">
+          <div class="js-official-channels" aria-live="assertive">
+          </div>
+        </div>  
+        <div class="col-4">
+          <div class="js-back-button" aria-live="assertive">
+          </div>
+        </div>  
+        <div class="col-4">
+          <div class="js-news-results" aria-live="assertive">
+          </div>
+        </div>  
       </div>
   </main>
     <script src="index.js"></script>
