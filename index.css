@@ -80,9 +80,9 @@ form {
 
 input {
   width: 33%;
-  height: 15px;
+  height: 25px;
   padding: 5px;
-  margin-top: 5px;
+  margin-top: 15px;
 }
 
 a:link {

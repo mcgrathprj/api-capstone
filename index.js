@@ -51,7 +51,7 @@ function displayRepresentatives(data) {
   $("header").css("height", "10%");
 
     const youraddress = `${data.normalizedInput.line1} ${data.normalizedInput.city} ${data.normalizedInput.state} ${data.normalizedInput.zip}`;
-    $(".js-your-address").html(`<h2>Displaying elected officials for ${youraddress}</h2><h2><a href="#" onClick = "location.reload()">Try Another Address</a></h2>`);
+    $(".js-your-address").html(`<h2>Displaying elected officials for ${youraddress}</h2><button class = "js-new-search" onClick = "location.reload()">Try Another Address</button>`);
     const html = data.offices.map((office, index) => renderOffice(office, index, youraddress));
     $(".js-search-results").html(html);
   }
