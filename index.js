@@ -74,11 +74,13 @@ function renderOfficialPage(office, index) {
   $(".js-search-results").css("display","none");
   $(".js-search-form").css("display","none");
   $(".js-your-address").css("display","none");
+  $(".js-official-name").css("display","block");
   $(".js-official-headshot").css("display","block");
-  $(".js-official-headings").css("display","block");
+  $(".js-official-details").css("display","block");
   $(".js-official-channels").css("display","block");
   $(".js-news-results").css("display","block");
-  $(".js-back-button").css("display","block");    
+  $(".js-back-button").css("display","block");
+  $(".js-official-name").html(`<h2>${results.officials[index].name}</h2>`);    
   if (results.officials[index].hasOwnProperty("photoUrl") === true) {
     $(".js-official-headshot").html(`<img src="${results.officials[index].photoUrl}" class="js-headshot" alt="headshot for ${results.officials[index].name}"/>`);
   }
@@ -86,15 +88,13 @@ function renderOfficialPage(office, index) {
     $(".js-official-headshot").empty();
   }
   if (results.officials[index].hasOwnProperty("urls") === true) {
-    $(".js-official-headings").html(`<h2>${results.officials[index].name}</h2>
-      <h3>${results.offices[office].name}</h3>
+    $(".js-official-details").html(`<h3>${results.offices[office].name}</h3>
       <p>Party: ${results.officials[index].party}</p>
       <p>Website: <a href="${results.officials[index].urls[0]}">${results.officials[index].urls[0]}</a></p>`
     );
   }
   else {
-   $(".js-official-headings").html(`<img src="${results.officials[index].photoUrl}" class="js-headshot">
-      <h2>${results.officials[index].name}<h2> 
+   $(".js-official-headings").html(`<img src="${results.officials[index].photoUrl}" class="js-headshot"> 
       <h3>${results.offices[office].name}</h3>
       <p>Party: ${results.officials[index].party}</p>`
     ) 
@@ -148,8 +148,9 @@ function goBackToResults() {
     $(".js-search-results").css("display","block");
     $(".js-search-form").css("display","block");
     $(".js-your-address").css("display","block");
+    $(".js-official-name").css("display","none");
     $(".js-official-headshot").css("display","none");
-    $(".js-official-headings").css("display","none");
+    $(".js-official-details").css("display","none");
     $(".js-official-channels").css("display","none");
     $(".js-news-results").css("display","none");
     $(".js-back-button").css("display","none")

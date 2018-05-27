@@ -1,21 +1,19 @@
 body, html {
   font-family: 'Roboto', sans-serif;
-  height: 100%;
-  margin:0;
 }
 
 h1 {  
   background: linear-gradient(to right, #4481eb 0%, #04befe 100%);
   text-align: center;
-  font-size: 400%;
+/*  font-size: 400%;*/
   margin-top: 0px;
   padding: 0px
 }
 
-h2 {
+/*h2 {
   font-size: 200%;
   margin-left: 25px;
-}
+} */
 
 legend {
   font-size: 200%;
@@ -24,9 +22,9 @@ legend {
 }
 
 
-h3,p, #go_back {
+/* h3,p, #go_back {
   margin-left: 25px;
-}
+} */
 
 label {
   font-size: 150%;
@@ -40,17 +38,26 @@ fieldset {
   margin-right: auto
 }
 
+.error-message {
+  text-align: center;
+}
+
 .js-headshot   {
   display: block;
-  margin-left: 25px;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 25px;
-  height: 275px;
+  height: 275px; 
   width: 220px;
 }
 
 .js-your-address, legend, .js-search-results, .js-new-search  {
   margin-left: 25px;
   margin-top: 25px;
+}
+
+.js-official-name {
+  text-align: center;  
 }
 
 .js-official-headshot {
@@ -62,9 +69,9 @@ fieldset {
   position: relative;
 }
 
-.js-news-description {
+/*.js-news-description {
  margin-left: 30px;
-}
+} */
 
 button {
   background-color: #04befe;
@@ -81,7 +88,7 @@ form {
 input {
   width: 33%;
   height: 25px;
-  padding: 5px;
+  padding: 5px; 
   margin-top: 15px;
 }
 
