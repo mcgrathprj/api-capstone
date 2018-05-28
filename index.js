@@ -51,7 +51,7 @@ function displayRepresentatives(data) {
   $("header").css("height", "10%");
 
     const youraddress = `${data.normalizedInput.line1} ${data.normalizedInput.city} ${data.normalizedInput.state} ${data.normalizedInput.zip}`;
-    $(".js-your-address").html(`<h2>Displaying elected officials for ${youraddress}</h2><button class = "js-new-search" onClick = "location.reload()">Try Another Address</button>`);
+    $(".js-your-address").html(`<h2>Here are the elected officials for ${youraddress}!</h2><button class = "js-new-search" onClick = "location.reload()">Try Another Address</button>`);
     const html = data.offices.map((office, index) => renderOffice(office, index, youraddress));
     $(".js-search-results").html(html);
   }
@@ -90,7 +90,7 @@ function renderOfficialPage(office, index) {
   if (results.officials[index].hasOwnProperty("urls") === true) {
     $(".js-official-details").html(`<h3>${results.offices[office].name}</h3>
       <p>Party: ${results.officials[index].party}</p>
-      <p>Website: <a href="${results.officials[index].urls[0]}">${results.officials[index].urls[0]}</a></p>`
+      <p>Website: <a href="${results.officials[index].urls[0]}" target="_blank">${results.officials[index].urls[0]}</a></p>`
     );
   }
   else {

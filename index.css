@@ -43,25 +43,16 @@ fieldset {
 }
 
 .js-headshot   {
+/*  margin-left: 25px; */
   display: block;
-  margin-left: auto;
-  margin-right: auto;
   margin-top: 25px;
   height: 275px; 
   width: 220px;
 }
 
-.js-your-address, legend, .js-search-results, .js-new-search  {
+.js-your-address, legend, .js-search-results, .js-new-search, .js-official-name  {
   margin-left: 25px;
   margin-top: 25px;
-}
-
-.js-official-name {
-  text-align: center;  
-}
-
-.js-official-headshot {
-  margin-top: 25px
 }
 
 .js-error-message {
@@ -69,9 +60,6 @@ fieldset {
   position: relative;
 }
 
-/*.js-news-description {
- margin-left: 30px;
-} */
 
 button {
   background-color: #04befe;
