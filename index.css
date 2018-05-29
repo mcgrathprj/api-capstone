@@ -5,15 +5,9 @@ body, html {
 h1 {  
   background: linear-gradient(to right, #4481eb 0%, #04befe 100%);
   text-align: center;
-/*  font-size: 400%;*/
   margin-top: 0px;
   padding: 0px
 }
-
-/*h2 {
-  font-size: 200%;
-  margin-left: 25px;
-} */
 
 legend {
   font-size: 200%;
@@ -21,10 +15,6 @@ legend {
   margin-top: 25px;
 }
 
-
-/* h3,p, #go_back {
-  margin-left: 25px;
-} */
 
 label {
   font-size: 150%;
@@ -43,14 +33,13 @@ fieldset {
 }
 
 .js-headshot   {
-/*  margin-left: 25px; */
   display: block;
   margin-top: 25px;
   height: 275px; 
   width: 220px;
 }
 
-.js-your-address, legend, .js-search-results, .js-new-search, .js-official-name  {
+.js-your-address, legend, .js-search-results  {
   margin-left: 25px;
   margin-top: 25px;
 }
